@@ -14,18 +14,17 @@ use Spryker\Glue\Kernel\Controller\AbstractController;
 /**
  * @method \Spryker\Glue\UpSellingProductsRestApi\UpSellingProductsRestApiFactory getFactory()
  */
-class UpSellingProductsForGuestCartResourceController extends AbstractController
+class UpSellingProductsForCartController extends AbstractController
 {
     /**
      * @Glue({
      *     "getCollection": {
      *          "summary": [
-     *              "Retrieves list of all up-selling products of items in guest cart."
+     *              "Retrieves list of all up-selling products for the cart."
      *          ],
      *          "parameters": [{
-     *              "name": "X-Anonymous-Customer-Unique-Id",
-     *              "in": "header",
-     *              "required": true
+     *              "name": "Accept-Language",
+     *              "in": "header"
      *          }]
      *     }
      * })
