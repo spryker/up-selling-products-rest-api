@@ -15,11 +15,11 @@ use Spryker\Glue\GlueApplicationExtension\Dependency\Plugin\ResourceWithParentPl
 use Spryker\Glue\Kernel\AbstractPlugin;
 use Spryker\Glue\UpSellingProductsRestApi\UpSellingProductsRestApiConfig;
 
-class UpSellingProductsForCartRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface, ResourceWithParentPluginInterface
+class UpSellingProductsForGuestCartResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface, ResourceWithParentPluginInterface
 {
     /**
      * {@inheritdoc}
-     *  - Configures action to retrieve up-selling products collection for cart.
+     *  - Configures action to retrieve up-selling products collection for guest cart.
      *
      * @api
      *
@@ -29,7 +29,7 @@ class UpSellingProductsForCartRoutePlugin extends AbstractPlugin implements Reso
      */
     public function configure(ResourceRouteCollectionInterface $resourceRouteCollection): ResourceRouteCollectionInterface
     {
-        $resourceRouteCollection->addGet(UpSellingProductsRestApiConfig::ACTION_UP_SELLING_PRODUCTS_GET);
+        $resourceRouteCollection->addGet(UpSellingProductsRestApiConfig::ACTION_UP_SELLING_PRODUCTS_GET, false);
 
         return $resourceRouteCollection;
     }
@@ -55,7 +55,7 @@ class UpSellingProductsForCartRoutePlugin extends AbstractPlugin implements Reso
      */
     public function getController(): string
     {
-        return UpSellingProductsRestApiConfig::CONTROLLER_CART_UP_SELLING_PRODUCTS;
+        return UpSellingProductsRestApiConfig::CONTROLLER_GUEST_CART_UP_SELLING_PRODUCTS;
     }
 
     /**
@@ -79,6 +79,6 @@ class UpSellingProductsForCartRoutePlugin extends AbstractPlugin implements Reso
      */
     public function getParentResourceType(): string
     {
-        return CartsRestApiConfig::RESOURCE_CARTS;
+        return CartsRestApiConfig::RESOURCE_GUEST_CARTS;
     }
 }
