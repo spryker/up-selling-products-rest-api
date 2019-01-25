@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Glue\UpSellingProductsRestApi\Processor\UpSellingProduct;
+namespace Spryker\Glue\UpSellingProductsRestApi\Processor\RestResponseBuilder;
 
 use Generated\Shared\Transfer\RestErrorMessageTransfer;
 use Spryker\Glue\CartsRestApi\CartsRestApiConfig;
@@ -45,13 +45,13 @@ class UpSellingProductRestResponseBuilder implements UpSellingProductRestRespons
      *
      * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
      */
-    public function createUpSellingProductsRestResponse(RestRequestInterface $restRequest, array $productViewTransfers): RestResponseInterface
+    public function buildUpSellingProductsRestResponse(RestRequestInterface $restRequest, array $productViewTransfers): RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();
 
         foreach ($productViewTransfers as $productViewTransfer) {
-            $abstractProductResource = $this->productsRestApiResource->findProductAbstractBySku(
-                $productViewTransfer->getSku(),
+            $abstractProductResource = $this->productsRestApiResource->findProductAbstractById(
+                $productViewTransfer->getIdProductAbstract(),
                 $restRequest
             );
 
