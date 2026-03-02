@@ -27,10 +27,6 @@ class UpSellingProductRestResponseBuilder implements UpSellingProductRestRespons
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\UpSellingProductsRestApi\Dependency\RestApiResource\UpSellingProductsRestApiToProductsRestApiResourceInterface $productsRestApiResource
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(
         UpSellingProductsRestApiToProductsRestApiResourceInterface $productsRestApiResource,
         RestResourceBuilderInterface $restResourceBuilder
@@ -60,9 +56,6 @@ class UpSellingProductRestResponseBuilder implements UpSellingProductRestRespons
         return $restResponse;
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createCartNotFoundError(): RestResponseInterface
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())
@@ -73,9 +66,6 @@ class UpSellingProductRestResponseBuilder implements UpSellingProductRestRespons
         return $this->restResourceBuilder->createRestResponse()->addError($restErrorTransfer);
     }
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createCartIdMissingError(): RestResponseInterface
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())

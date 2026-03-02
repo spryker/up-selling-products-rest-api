@@ -12,11 +12,5 @@ use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 
 interface QuoteReaderInterface
 {
-    /**
-     * @param string $uuid
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer|null
-     */
     public function findQuoteByUuid(string $uuid, RestRequestInterface $restRequest): ?QuoteTransfer;
 }

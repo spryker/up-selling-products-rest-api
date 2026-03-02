@@ -39,11 +39,6 @@ class UpSellingProductsRestApiDependencyProvider extends AbstractBundleDependenc
      */
     public const RESOURCE_PRODUCTS_REST_API = 'RESOURCE_PRODUCTS_REST_API';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -56,11 +51,6 @@ class UpSellingProductsRestApiDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addProductRelationStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_RELATION_STORAGE, function (Container $container) {
@@ -72,11 +62,6 @@ class UpSellingProductsRestApiDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addProductStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_STORAGE, function (Container $container) {
@@ -88,11 +73,6 @@ class UpSellingProductsRestApiDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addCartsRestApiClient(Container $container): Container
     {
         $container->set(static::CLIENT_CARTS_REST_API, function (Container $container) {
@@ -104,11 +84,6 @@ class UpSellingProductsRestApiDependencyProvider extends AbstractBundleDependenc
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addProductsRestApiResource(Container $container): Container
     {
         $container->set(static::RESOURCE_PRODUCTS_REST_API, function (Container $container) {

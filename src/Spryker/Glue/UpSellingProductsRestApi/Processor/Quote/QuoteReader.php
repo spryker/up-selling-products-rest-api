@@ -20,20 +20,11 @@ class QuoteReader implements QuoteReaderInterface
      */
     protected $cartsRestApiClient;
 
-    /**
-     * @param \Spryker\Glue\UpSellingProductsRestApi\Dependency\Client\UpSellingProductsRestApiToCartsRestApiClientInterface $cartsRestApiClient
-     */
     public function __construct(UpSellingProductsRestApiToCartsRestApiClientInterface $cartsRestApiClient)
     {
         $this->cartsRestApiClient = $cartsRestApiClient;
     }
 
-    /**
-     * @param string $uuid
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer|null
-     */
     public function findQuoteByUuid(string $uuid, RestRequestInterface $restRequest): ?QuoteTransfer
     {
         $quoteTransfer = $this->createQuoteTransfer($uuid, $restRequest->getRestUser());
@@ -47,12 +38,6 @@ class QuoteReader implements QuoteReaderInterface
         return $quoteResponseTransfer->getQuoteTransfer();
     }
 
-    /**
-     * @param string $uuid
-     * @param \Generated\Shared\Transfer\RestUserTransfer $restUserTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createQuoteTransfer(
         string $uuid,
         RestUserTransfer $restUserTransfer

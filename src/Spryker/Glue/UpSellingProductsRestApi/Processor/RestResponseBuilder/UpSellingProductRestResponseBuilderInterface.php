@@ -20,13 +20,7 @@ interface UpSellingProductRestResponseBuilderInterface
      */
     public function buildUpSellingProductCollectionRestResponse(RestRequestInterface $restRequest, array $productAbstractIds): RestResponseInterface;
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createCartNotFoundError(): RestResponseInterface;
 
-    /**
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function createCartIdMissingError(): RestResponseInterface;
 }

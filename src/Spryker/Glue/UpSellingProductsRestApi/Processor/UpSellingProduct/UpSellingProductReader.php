@@ -32,11 +32,6 @@ class UpSellingProductReader implements UpSellingProductReaderInterface
      */
     protected $upSellingProductRestResponseBuilder;
 
-    /**
-     * @param \Spryker\Glue\UpSellingProductsRestApi\Processor\Quote\QuoteReaderInterface $quoteReader
-     * @param \Spryker\Glue\UpSellingProductsRestApi\Dependency\Client\UpSellingProductsRestApiToProductRelationStorageClientInterface $productRelationStorageClient
-     * @param \Spryker\Glue\UpSellingProductsRestApi\Processor\RestResponseBuilder\UpSellingProductRestResponseBuilderInterface $upSellingProductRestResponseBuilder
-     */
     public function __construct(
         QuoteReaderInterface $quoteReader,
         UpSellingProductsRestApiToProductRelationStorageClientInterface $productRelationStorageClient,
@@ -47,11 +42,6 @@ class UpSellingProductReader implements UpSellingProductReaderInterface
         $this->upSellingProductRestResponseBuilder = $upSellingProductRestResponseBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function readUpSellingProducts(RestRequestInterface $restRequest): RestResponseInterface
     {
         $parentResource = $this->findParentResourceByType($restRequest);
@@ -71,11 +61,6 @@ class UpSellingProductReader implements UpSellingProductReaderInterface
             ->buildUpSellingProductCollectionRestResponse($restRequest, $upSellingProductAbstractIds);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface|null
-     */
     protected function findParentResourceByType(RestRequestInterface $restRequest): ?RestResourceInterface
     {
         return $restRequest->findParentResourceByType(CartsRestApiConfig::RESOURCE_CARTS)

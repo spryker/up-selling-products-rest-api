@@ -21,17 +21,11 @@ use Spryker\Glue\UpSellingProductsRestApi\Processor\UpSellingProduct\UpSellingPr
 
 class UpSellingProductsRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Processor\Quote\QuoteReaderInterface
-     */
     public function createQuoteReader(): QuoteReaderInterface
     {
         return new QuoteReader($this->getCartsRestApiClient());
     }
 
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Processor\UpSellingProduct\UpSellingProductReaderInterface
-     */
     public function createUpSellingProductReader(): UpSellingProductReaderInterface
     {
         return new UpSellingProductReader(
@@ -41,9 +35,6 @@ class UpSellingProductsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Processor\RestResponseBuilder\UpSellingProductRestResponseBuilderInterface
-     */
     public function createUpSellingProductRestResponseBuilder(): UpSellingProductRestResponseBuilderInterface
     {
         return new UpSellingProductRestResponseBuilder(
@@ -52,33 +43,21 @@ class UpSellingProductsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Dependency\Client\UpSellingProductsRestApiToProductRelationStorageClientInterface
-     */
     public function getProductRelationStorageClient(): UpSellingProductsRestApiToProductRelationStorageClientInterface
     {
         return $this->getProvidedDependency(UpSellingProductsRestApiDependencyProvider::CLIENT_PRODUCT_RELATION_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Dependency\Client\UpSellingProductsRestApiToProductStorageClientInterface
-     */
     public function getProductStorageClient(): UpSellingProductsRestApiToProductStorageClientInterface
     {
         return $this->getProvidedDependency(UpSellingProductsRestApiDependencyProvider::CLIENT_PRODUCT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Dependency\Client\UpSellingProductsRestApiToCartsRestApiClientInterface
-     */
     public function getCartsRestApiClient(): UpSellingProductsRestApiToCartsRestApiClientInterface
     {
         return $this->getProvidedDependency(UpSellingProductsRestApiDependencyProvider::CLIENT_CARTS_REST_API);
     }
 
-    /**
-     * @return \Spryker\Glue\UpSellingProductsRestApi\Dependency\RestApiResource\UpSellingProductsRestApiToProductsRestApiResourceInterface
-     */
     public function getProductsRestApiResource(): UpSellingProductsRestApiToProductsRestApiResourceInterface
     {
         return $this->getProvidedDependency(UpSellingProductsRestApiDependencyProvider::RESOURCE_PRODUCTS_REST_API);
