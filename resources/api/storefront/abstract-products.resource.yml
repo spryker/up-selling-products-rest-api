@@ -1,0 +1,45 @@
+resource:
+    name: AbstractProducts
+    shortName: abstract-products
+
+    paginationEnabled: false
+
+    operations:
+        - type: GetCollection
+          name: getCartUpSellingProducts
+          description: 'Retrieve up-selling products for an authenticated cart.'
+          uriTemplate: /carts/{cartId}/up-selling-products
+          provider: Spryker\Glue\UpSellingProductsRestApi\Api\Storefront\Provider\UpSellingProductsStorefrontProvider
+          security: "is_granted('ROLE_CUSTOMER')"
+          uriVariables:
+              cartId:
+                  fromClass: CartsStorefrontResource
+          openapiContext:
+              example: '/carts/1ce91011-8d60-59ef-9fe0-4493ef36c4f0/up-selling-products'
+              responses:
+                  200:
+                      description: 'Up-selling products retrieved.'
+                  400:
+                      description: 'Cart ID is missing from the request.'
+                  403:
+                      description: 'Unauthorized request.'
+                  404:
+                      description: 'No cart exists for the given ID.'
+
+        - type: GetCollection
+          name: getGuestCartUpSellingProducts
+          description: 'Retrieve up-selling products for a guest cart.'
+          uriTemplate: /guest-carts/{guestCartId}/up-selling-products
+          provider: Spryker\Glue\UpSellingProductsRestApi\Api\Storefront\Provider\UpSellingProductsStorefrontProvider
+          uriVariables:
+              guestCartId:
+                  fromClass: GuestCartsStorefrontResource
+          openapiContext:
+              example: '/guest-carts/1ce91011-8d60-59ef-9fe0-4493ef36c4f0/up-selling-products'
+              responses:
+                  200:
+                      description: 'Up-selling products retrieved.'
+                  400:
+                      description: 'Guest cart ID is missing from the request.'
+                  404:
+                      description: 'No guest cart exists for the given ID.'
