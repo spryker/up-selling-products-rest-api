@@ -19,8 +19,6 @@ resource:
               responses:
                   200:
                       description: 'Up-selling products retrieved.'
-                  400:
-                      description: 'Cart ID is missing from the request.'
                   403:
                       description: 'Unauthorized request.'
                   404:
@@ -40,6 +38,6 @@ resource:
                   200:
                       description: 'Up-selling products retrieved.'
                   400:
-                      description: 'Guest cart ID is missing from the request.'
+                      description: 'The anonymous customer unique id header is missing from the request.'
                   404:
                       description: 'No guest cart exists for the given ID.'
