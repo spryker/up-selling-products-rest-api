@@ -6,6 +6,9 @@ resource:
 
     operations:
         - type: GetCollection
+          extraProperties:
+              notFoundCode: '101'
+              notFoundMessage: 'Cart with given uuid not found.'
           name: getCartUpSellingProducts
           description: 'Retrieve up-selling products for an authenticated cart.'
           uriTemplate: /carts/{cartId}/up-selling-products
