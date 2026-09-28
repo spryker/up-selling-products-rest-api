@@ -22,6 +22,8 @@ resource:
               responses:
                   200:
                       description: 'Up-selling products retrieved.'
+                  401:
+                      description: 'Invalid access token.'
                   403:
                       description: 'Unauthorized request.'
                   404:
